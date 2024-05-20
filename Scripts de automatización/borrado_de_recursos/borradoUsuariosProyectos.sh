@@ -20,6 +20,16 @@ echo ${FULLNAME}
 echo ${EMAIL}
 echo ${DOMAIN}
 
+# Eliminación de todas las instancias.
+# En caso de problemas, borrar las instancias creadas:
+for INSTANCIAS in $(openstack server list --project $USER --format=value -c ID);
+do
+    openstack server delete $INSTANCIAS
+done
+#openstack server list
+# Segun el identificador, elegimos el servidor y lo eliminamos-
+#openstack server delete <nombreInstancia> 
+
 # 1º Eliminamos la información de la puerta de enlace del router del usuario.
 openstack router unset --external-gateway router-$USER
 
