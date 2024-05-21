@@ -38,19 +38,3 @@ for NET in $(openstack network list --project $NOMBRE_PROYECTO --format=value -c
 do
     openstack network delete $NET
 done
-
-# Eliminación de ips flotantes de un proyecto
-# Obtenemos el listado de ips flotantes asociadas al proyecto admin.
-#openstack floating ip list --project $NOMBRE_PROYECTO
-
-# Eliminamos las ips flotantes asociadas al proyecto.
-#for IPFLOAT in $(openstack floating ip list --project $NOMBRE_PROYECTO --format=value -c ID);
-#do
-#    openstack floating ip delete $IPFLOAT
-#done
-
-# En caso de problemas, borrar las instancias creadas:
-# Listado de los servidores ejecutandose.
-#openstack server list
-# Segun el identificador, elegimos el servidor y lo eliminamos-
-#openstack server delete <nombreInstancia> 
