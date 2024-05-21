@@ -4,7 +4,7 @@
 set -ex
 
 # Añadimos las variables
-source .env
+#source .env
 
 
 # Establecemos el fichero con csv
