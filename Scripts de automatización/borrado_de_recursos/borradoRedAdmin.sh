@@ -3,7 +3,7 @@
 set -ex
 
 # Cargamos las variables
-source .env
+#source .env
 
 # Proceso para eliminar la red.
 # 1º Obtenemos un listado de los routers asociados a 1 proyecto.
@@ -26,7 +26,7 @@ openstack router delete principal-router
 #openstack subnet list --project $NOMBRE_PROYECTO
 
 # Eliminamos la subred asociada al proyecto.
-for SUBNET_ID in $(openstack subnet list --project $NOMBRE_PROYECTO --format=value -c ID);
+for SUBNET_ID in $(openstack subnet list --project admin --format=value -c ID);
 do
     openstack subnet delete $SUBNET_ID
 done
@@ -34,7 +34,7 @@ done
 # Eliminamos las redes.
 
 # Eliminamos las redes asociadas al proyecto.
-for NET in $(openstack network list --project $NOMBRE_PROYECTO --format=value -c ID);
+for NET in $(openstack network list --project admin --format=value -c ID);
 do
     openstack network delete $NET
 done
