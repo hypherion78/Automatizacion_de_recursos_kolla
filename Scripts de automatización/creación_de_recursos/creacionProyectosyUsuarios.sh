@@ -3,10 +3,6 @@
 # Establecemos la siguiente sentencia, para que si hay un error que continue el script.
 set -ex
 
-# Añadimos las variables
-source .env
-
-
 # Establecemos el fichero con csv
 INPUT_CSV_FILE=usuarios.csv
 
@@ -42,7 +38,7 @@ openstack user set \
 
 # Establecer cuota sobre proyectos de usuarios
 openstack quota set \
-  --ram 10000\
+  --ram 5000\
   --cores 10 \
   --networks 10 \
   --ports 50 \
@@ -50,9 +46,9 @@ openstack quota set \
   --secgroups 10 \
   --secgroup-rules 15 \
   --floating-ips 3 \
-  --volumes 2 \
-  --snapshots 5 \
-  --gigabytes 10 \
+  --volumes 1 \
+  --snapshots 2 \
+  --gigabytes 5 \
   $USER
 # Creación de los grupos de seguridad.
 openstack security group create \
