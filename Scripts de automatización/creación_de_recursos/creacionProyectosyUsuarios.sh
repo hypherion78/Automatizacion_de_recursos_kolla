@@ -37,9 +37,23 @@ openstack project create \
 
 # Establecemos una contraseña a un usuario y lo asignamos al proyecto.
 openstack user set \
-   --password $PASSWORD \
+   --password $USER \
    --project $USER $USER
 
+# Establecer cuota sobre proyectos de usuarios
+openstack quota set \
+  --ram 10000\
+  --cores 10 \
+  --networks 10 \
+  --ports 50 \
+  --routers 10 \
+  --secgroups 10 \
+  --secgroup-rules 15 \
+  --floating-ips 3 \
+  --volumes 2 \
+  --snapshots 5 \
+  --gigabytes 10 \
+  $USER
 # Creación de los grupos de seguridad.
 openstack security group create \
   --description "Grupo de seguridad para $USER" \
