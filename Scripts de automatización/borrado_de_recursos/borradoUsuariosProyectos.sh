@@ -20,12 +20,22 @@ echo ${FULLNAME}
 echo ${EMAIL}
 echo ${DOMAIN}
 
+# Eliminamos los volumenes de las instancias.
+# Desasociamos el volumen de la instancia.
+
+# Preguntamos por el nombre del volumen
+# read -p "¿Cual es el nombre del volumen?" nombre_volumen
+# read -p "¿Cual es el nombre de la instancia?" nombre_instancia
+
+# Desasociamos el volumen de la instancia
+# openstack server remove volume $nombre_instancia
+
 # Eliminación de todas las instancias.
 # En caso de problemas, borrar las instancias creadas:
-for INSTANCIAS in $(openstack server list --project $USER --format=value -c ID);
-do
-    openstack server delete $INSTANCIAS
-done
+  for INSTANCIAS in $(openstack server list --project $USER --format=value -c ID);
+  do
+      openstack server delete $INSTANCIAS
+  done
 #openstack server list
 # Segun el identificador, elegimos el servidor y lo eliminamos-
 #openstack server delete <nombreInstancia> 
@@ -61,4 +71,4 @@ openstack user delete $USER
 openstack project delete $USER
 
 
-done < <(tail -n +2 ${INPUT_CSV_FILE}) 
+done < <(tail -n +2 ${INPUT_CSV_FILE})
