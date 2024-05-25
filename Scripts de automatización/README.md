@@ -1,1 +1,0 @@
-# Automatizacion_de_recursos_kolla
