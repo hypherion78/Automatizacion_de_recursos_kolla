@@ -3,10 +3,6 @@
 # Establecemos la siguiente sentencia, para que si hay un error que continue el script.
 set -ex
 
-# Añadimos las variables
-source .env
-
-
 # Establecemos el fichero con csv
 INPUT_CSV_FILE=usuarios.csv
 
