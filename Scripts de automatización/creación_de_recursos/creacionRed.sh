@@ -18,7 +18,6 @@ openstack network create \
 # Creamos la subred para la red externa. Se asignará a la red externa en el router  Cuando se configure con "openstack router set"
 openstack subnet create \
   --network red-externa-equipos \
-  --allocation-pool start=192.168.22.180,end=192.168.22.190 \
   --dns-nameserver 192.168.22.100 \
   --gateway 192.168.22.100 \
   --subnet-range 192.168.22.0/24 \
