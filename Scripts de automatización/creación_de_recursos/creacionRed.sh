@@ -24,27 +24,10 @@ openstack subnet create \
   --description "Subred-Externa-Equipos" \
   subred-externa-equipos
 
-# Red interna, se crea la red interna, para los equipos conectados al router.
-openstack network create \
-  --enable \
-  --description "Red interna" \
-  red-interna
-
-openstack subnet create \
-  --network red-interna \
-  --subnet-range 10.0.1.0/24 \
-  --dns-nameserver 8.8.8.8 \
-  subred-interna
-
-
 # Creamos el router para asignar las redes y subredes al router
 openstack router create \
     --project admin \
    principal-router
-
-openstack router add subnet \
-    principal-router \
-    subred-interna
 
 # Permitimos la conectividad de la red privada con el exterior.
 openstack router set \
