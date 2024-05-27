@@ -48,7 +48,7 @@ openstack quota set \
   --floating-ips 3 \
   --volumes 1 \
   --snapshots 2 \
-  --gigabytes 5 \
+  --gigabytes 10 \
   $USER
 # Creación de los grupos de seguridad.
 openstack security group create \
@@ -109,3 +109,5 @@ openstack router set \
     router-$USER
 
 done < <(tail -n +2 ${INPUT_CSV_FILE}) 
+
+# Si funciona aunque se asignen ips flotantes y volumenes.
