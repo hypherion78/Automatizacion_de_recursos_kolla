@@ -23,7 +23,6 @@ openstack router delete principal-router
 
 # 5 Eliminamos la subred
 # Obtenemos listado de las subredes según el proyecto asociado.
-#openstack subnet list --project $NOMBRE_PROYECTO
 
 # Eliminamos la subred asociada al proyecto.
 for SUBNET_ID in $(openstack subnet list --project admin --format=value -c ID);
