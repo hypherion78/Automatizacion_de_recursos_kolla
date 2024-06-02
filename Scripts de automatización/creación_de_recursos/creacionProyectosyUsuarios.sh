@@ -93,7 +93,7 @@ openstack subnet create \
   --project $USER \
   --network red-interna-$USER \
   --subnet-range 10.0.0.0/24 \
-  --dns-nameserver 8.8.8.8 \
+  --dns-nameserver 192.168.22.100 \
   subred-interna-$USER
 
 openstack router create \
