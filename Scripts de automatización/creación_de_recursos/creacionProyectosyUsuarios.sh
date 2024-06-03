@@ -68,6 +68,10 @@ openstack security group rule create \
 openstack security group rule create \
   --proto tcp --dst-port 443 \
   $USER
+  
+openstack security group rule create \
+  --protocol icmp \
+  $USER
 
 #ASOCIA EL USUARIO AL PROYECTO
 # Creación de los roles para el nuevo usuario.  Preguntar a Jose Juan.
