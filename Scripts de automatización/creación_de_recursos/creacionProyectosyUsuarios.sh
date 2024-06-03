@@ -58,7 +58,9 @@ openstack security group create \
 
 # Añadimos reglas de seguridad a la regla previamente creada.
 openstack security group rule create \
-  --proto tcp --dst-port 22 \
+  --protocol tcp \
+  --remote-ip 0.0.0.0/0 \
+  --dst-port 22 \
   $USER
 
 openstack security group rule create \
